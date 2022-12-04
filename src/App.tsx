@@ -1,24 +1,17 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+// components
+import Header from "./components/Header";
+import Sidebar from "./components/Sidebar";
 
 function App() {
+  const [isDark, setIsDark] = useState(false);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={`${isDark ? "dark" : ""} h-full`}>
+      <div className="bg-[#F6F7F8] h-full dark:bg-[#19191A] ">
+        <Header isDark={isDark} />
+        <Sidebar setIsDark={setIsDark} isDark={isDark} />
+      </div>
     </div>
   );
 }
